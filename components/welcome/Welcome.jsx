@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   View,
   Text,
@@ -8,9 +9,19 @@ import {
   FlatList
 } from 'react-native'
 
+
 import styles from './welcome.style'
 
 const Welcome = () => {
+  const [exercises, setExercises] = useState([])
+
+  function handleSubmit() {
+    setExercises(prevExercises => [
+      ...prevExercises,
+      {text: exerciseText, id: Math.random().toString()}
+    ])
+  }
+
   return (
     <View>
       <View style={styles.container}>
