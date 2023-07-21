@@ -1,9 +1,10 @@
-import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
+import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn"
 
 // home screen
-import Welcome from "./Welcome";
+import Welcome from "./Welcome"
 
 export {
   ScreenHeaderBtn,
   Welcome,
+
 };

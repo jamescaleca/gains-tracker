@@ -51,16 +51,9 @@ const Welcome = () => {
       </View>
 
       <View style={styles.searchContainer}>
-        {/* <View style={styles.searchWrapper}>
-          <TextInput 
-            style={styles.searchInput}
-            placeholder="Name of exercise"
-          />
-          <Button title="Submit"/>
-        </View> */}
         <Button 
           title="Add New Exercise"
-          color="#a065ec"
+          color="#4a02a9"
           onPress={startAddExercise}
         />
         <ExerciseInput 
@@ -68,7 +61,7 @@ const Welcome = () => {
           onAddExercise={handleSubmit}
           onCancel={endAddExercise}
         />
-        <View>
+        <View style={{ marginTop: 30 }}>
           <FlatList 
             data={exercises}
             renderItem={itemData => {
@@ -95,6 +88,7 @@ export default Welcome
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    marginBottom: 30
   },
   userName: {
     fontFamily: FONT.regular,
@@ -110,9 +104,9 @@ const styles = StyleSheet.create({
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "column",
     marginTop: SIZES.large,
-    height: 50,
+    flex: 2
   },
   searchWrapper: {
     flex: 1,
@@ -146,15 +140,4 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: SIZES.medium,
   },
-  tab: (activeJobType, item) => ({
-    paddingVertical: SIZES.small / 2,
-    paddingHorizontal: SIZES.small,
-    borderRadius: SIZES.medium,
-    borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  }),
-  tabText: (activeJobType, item) => ({
-    fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  }),
 });

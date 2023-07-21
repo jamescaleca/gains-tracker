@@ -8,7 +8,7 @@ import { Welcome, ScreenHeaderBtn } from "../components"
 const Home = () => {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <SafeAreaView style={{flex: 1, backgroundColor: COLORS.darkerPurple}}>
         <Stack.Screen 
           options={{
@@ -23,16 +23,14 @@ const Home = () => {
             headerTitle: ""
           }}
         />
-        <ScrollView>
-          <View
-            style={{
-              flex: 1,
-              padding: SIZES.medium
-            }}
-          >
-            <Welcome />
-          </View>
-        </ScrollView>
+        <View
+          style={{
+            flex: 1,
+            padding: SIZES.medium
+          }}
+        >
+          <Welcome />
+        </View>
       </SafeAreaView>
     </>
   )
