@@ -59,7 +59,7 @@ const Welcome = () => {
           <Button title="Submit"/>
         </View> */}
         <Button 
-          title="Add New Goal"
+          title="Add New Exercise"
           color="#a065ec"
           onPress={startAddExercise}
         />

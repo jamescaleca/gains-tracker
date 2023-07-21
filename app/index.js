@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <>
       <StatusBar style="light" />
-      <SafeAreaView style={{flex: 1, backgroundColor: "#7b65f7"}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: COLORS.darkerPurple}}>
         <Stack.Screen 
           options={{
-            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerStyle: { backgroundColor: COLORS.darkerPurple },
             headerShadowVisible: false,
             headerLeft: () => (
               <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
