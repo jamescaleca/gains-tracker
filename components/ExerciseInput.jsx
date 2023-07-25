@@ -7,6 +7,8 @@ import {
   StyleSheet
 } from 'react-native'
 
+import PrimaryButton from './PrimaryButton'
+
 function ExerciseInput(props) {
   const [enteredExerciseText, setEnteredExerciseText] = useState('')
 
@@ -30,18 +32,17 @@ function ExerciseInput(props) {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button 
-              title="Cancel" 
+            <PrimaryButton 
               onPress={props.onCancel} 
-              color="#f31282"
-            />
+              color="#f31221"
+            >
+              Cancel
+            </PrimaryButton>
           </View>
           <View style={styles.button}>
-            <Button
-              title="Add Exercise" 
-              onPress={addExerciseHandler}
-              color="#b180f0"
-            />
+            <PrimaryButton onPress={addExerciseHandler}>
+              Add Exercise
+            </PrimaryButton>
           </View>
         </View>
       </View>

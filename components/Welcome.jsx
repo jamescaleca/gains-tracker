@@ -12,6 +12,7 @@ import {
 
 import ExerciseInput from './ExerciseInput'
 import ExerciseItem from './ExerciseItem'
+import PrimaryButton from './PrimaryButton'
 
 import { COLORS, FONT, SIZES } from "../constants";
 
@@ -51,11 +52,11 @@ const Welcome = () => {
       </View>
 
       <View style={styles.searchContainer}>
-        <Button 
-          title="Add New Exercise"
-          color="#4a02a9"
+        <PrimaryButton
           onPress={startAddExercise}
-        />
+        >
+          Add New Exercise
+        </PrimaryButton>
         <ExerciseInput 
           visible={modalIsVisible}
           onAddExercise={handleSubmit}
