@@ -3,6 +3,7 @@ import {
   View,
   TextInput,
   Button,
+  Text,
   Modal,
   StyleSheet
 } from 'react-native'
@@ -24,17 +25,57 @@ function ExerciseInput(props) {
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
+        <Text style={styles.text}>Exercise Name:</Text>
         <TextInput 
           style={styles.textInput}
-          placeholder="Exercise name"
           onChangeText={exerciseInputHandler}
           value={enteredExerciseText}
+        />
+        <Text style={styles.text}>Warmup Reps:</Text>
+        <TextInput 
+          style={styles.textInput}
+          onChangeText={exerciseInputHandler}
+          value={enteredExerciseText}
+          keyboardType="number-pad"
+          autoCapitalize='none'
+          autoCorrect={false}
+          maxLength={2}
+        />
+        <Text style={styles.text}>Warmup Weight:</Text>
+        <TextInput 
+          style={styles.textInput}
+          onChangeText={exerciseInputHandler}
+          value={enteredExerciseText}
+          keyboardType="number-pad"
+          autoCapitalize='none'
+          autoCorrect={false}
+          maxLength={2}
+        />
+        <Text style={styles.text}>Working Reps:</Text>
+        <TextInput 
+          style={styles.textInput}
+          onChangeText={exerciseInputHandler}
+          value={enteredExerciseText}
+          keyboardType="number-pad"
+          autoCapitalize='none'
+          autoCorrect={false}
+          maxLength={2}
+        />
+        <Text style={styles.text}>Working Weight:</Text>
+        <TextInput 
+          style={styles.textInput}
+          onChangeText={exerciseInputHandler}
+          value={enteredExerciseText}
+          keyboardType="number-pad"
+          autoCapitalize='none'
+          autoCorrect={false}
+          maxLength={2}
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <PrimaryButton 
               onPress={props.onCancel} 
-              color="#f31221"
+              cancel={true}
             >
               Cancel
             </PrimaryButton>
@@ -59,6 +100,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#311b6b',
+  },
+  text: {
+    color: "white",
+    fontSize: 18
   },
   textInput: {
     borderWidth: 1,
