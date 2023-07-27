@@ -20,15 +20,12 @@ const Welcome = () => {
   const [exercises, setExercises] = useState([])
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
-  function startAddExercise() {
-    setModalIsVisible(true)
-  }
+  const startAddExercise = () => setModalIsVisible(true)
 
-  function endAddExercise() {
-    setModalIsVisible(false)
-  }
+  const endAddExercise = () => setModalIsVisible(false)
+  
 
-  function handleSubmit(enteredExerciseText) {
+  const handleSubmit = (enteredExerciseText) => {
     setExercises(prevExercises => [
       ...prevExercises,
       { text: enteredExerciseText, id: Math.random().toString() }
@@ -36,7 +33,7 @@ const Welcome = () => {
     endAddExercise()
   }
 
-  function deleteExercise(id) {
+  const deleteExercise = (id) => {
     setExercises(currentExercises => {
       return currentExercises.filter(goal => goal.id !== id)
     })

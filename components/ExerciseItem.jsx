@@ -1,14 +1,17 @@
-import { View, Text, Pressable, StyleSheet } from 'react-native'
+import { View, Text, Pressable, StyleSheet, Button } from 'react-native'
 
 function ExerciseItem(props) {
   return (
     <View style={styles.exerciseItem}>
       <Pressable
         android_ripple={{ color: '#210644' }}
-        onPress={props.onDeleteItem.bind(this, props.id)}
         style={({ pressed }) => pressed && styles.pressedItem}
       >
         <Text style={styles.exerciseText}>{props.text}</Text>
+        <Button
+          onPress={props.onDeleteItem.bind(this, props.id)}
+          title="X"
+        />
       </Pressable>
     </View>
   )
@@ -26,6 +29,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.25
+  },
+  button: {
+    flexDirection: "row",
   },
   pressedItem: {
     opacity: 0.5

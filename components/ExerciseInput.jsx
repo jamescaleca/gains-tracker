@@ -10,32 +10,36 @@ import {
 
 import PrimaryButton from './PrimaryButton'
 
-function ExerciseInput(props) {
+function ExerciseInput({ onAddExercise, visible, onCancel }) {
   const [enteredExerciseText, setEnteredExerciseText] = useState('')
-
-  function exerciseInputHandler(enteredText) {
-    setEnteredExerciseText(enteredText)
-  }
+  const [warmupReps, setWarmupReps] = useState('')
+  const [warmupWeight, setWarmupWeight] = useState('')
+  const [workingReps, setWorkingReps] = useState('')
+  const [workingWeight, setWorkingWeight] = useState('')
 
   function addExerciseHandler() {
-    props.onAddExercise(enteredExerciseText)
+    onAddExercise(enteredExerciseText)
     setEnteredExerciseText('')
+    setWarmupReps('')
+    setWarmupWeight('')
+    setWorkingReps('')
+    setWorkingWeight('')
   }
 
   return (
-    <Modal visible={props.visible} animationType="slide">
+    <Modal visible={visible} animationType="slide">
       <View style={styles.inputContainer}>
         <Text style={styles.text}>Exercise Name:</Text>
         <TextInput 
           style={styles.textInput}
-          onChangeText={exerciseInputHandler}
+          onChangeText={(enteredText) => setEnteredExerciseText(enteredText)}
           value={enteredExerciseText}
         />
         <Text style={styles.text}>Warmup Reps:</Text>
         <TextInput 
           style={styles.textInput}
-          onChangeText={exerciseInputHandler}
-          value={enteredExerciseText}
+          onChangeText={(enteredNum) => setWarmupReps(enteredNum)}
+          value={warmupReps}
           keyboardType="number-pad"
           autoCapitalize='none'
           autoCorrect={false}
@@ -44,8 +48,8 @@ function ExerciseInput(props) {
         <Text style={styles.text}>Warmup Weight:</Text>
         <TextInput 
           style={styles.textInput}
-          onChangeText={exerciseInputHandler}
-          value={enteredExerciseText}
+          onChangeText={(enteredNum) => setWarmupWeight(enteredNum)}
+          value={warmupWeight}
           keyboardType="number-pad"
           autoCapitalize='none'
           autoCorrect={false}
@@ -54,8 +58,8 @@ function ExerciseInput(props) {
         <Text style={styles.text}>Working Reps:</Text>
         <TextInput 
           style={styles.textInput}
-          onChangeText={exerciseInputHandler}
-          value={enteredExerciseText}
+          onChangeText={(enteredNum) => setWorkingReps(enteredNum)}
+          value={workingReps}
           keyboardType="number-pad"
           autoCapitalize='none'
           autoCorrect={false}
@@ -64,8 +68,8 @@ function ExerciseInput(props) {
         <Text style={styles.text}>Working Weight:</Text>
         <TextInput 
           style={styles.textInput}
-          onChangeText={exerciseInputHandler}
-          value={enteredExerciseText}
+          onChangeText={(enteredNum) => setWorkingWeight(enteredNum)}
+          value={workingWeight}
           keyboardType="number-pad"
           autoCapitalize='none'
           autoCorrect={false}
@@ -74,7 +78,7 @@ function ExerciseInput(props) {
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <PrimaryButton 
-              onPress={props.onCancel} 
+              onPress={onCancel} 
               cancel={true}
             >
               Cancel
