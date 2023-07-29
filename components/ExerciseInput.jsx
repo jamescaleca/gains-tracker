@@ -8,7 +8,7 @@ import {
   StyleSheet
 } from 'react-native'
 
-import PrimaryButton from './PrimaryButton'
+import PrimaryButton from './common/PrimaryButton'
 
 function ExerciseInput({ onAddExercise, visible, onCancel }) {
   const [enteredExerciseText, setEnteredExerciseText] = useState('')

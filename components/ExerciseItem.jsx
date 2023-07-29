@@ -1,8 +1,8 @@
-import { View, Text, Pressable, StyleSheet, Button } from 'react-native'
+import { View, Text, Pressable, StyleSheet } from 'react-native'
 
-function ExerciseItem(props) {
-  console.log(props.inputs)
+import PrimaryButton from './common/PrimaryButton'
 
+function ExerciseItem({ inputs, onDeleteItem, id }) {
   return (
     <View style={styles.exerciseItem}>
       <Pressable
@@ -13,22 +13,31 @@ function ExerciseItem(props) {
         }
       >
         <View>
-          <Text style={styles.exerciseText}>{props.inputs.exerciseText}</Text>
+          <Text style={styles.exerciseText}>{inputs.exerciseText}</Text>
         </View>
-        <View style={{ flexDirection: "row"}}>
+        <View style={{ flexDirection: "row" }}>
           <View>
-            <Text style={styles.exerciseText}>WU Reps: {props.inputs.warmupReps}</Text>
-            <Text style={styles.exerciseText}>WU Weight: {props.inputs.warmupWeight}</Text>
+            <Text style={styles.exerciseText}>
+              WU Reps: {inputs.warmupReps}
+            </Text>
+            <Text style={styles.exerciseText}>
+              WU Weight: {inputs.warmupWeight}
+            </Text>
           </View>
           <View>
-            <Text style={styles.exerciseText}>Working Reps: {props.inputs.workingReps}</Text>
-            <Text style={styles.exerciseText}>Working Weight: {props.inputs.workingWeight}</Text>
+            <Text style={styles.exerciseText}>
+              Working Reps: {inputs.workingReps}
+            </Text>
+            <Text style={styles.exerciseText}>
+              Working Weight: {inputs.workingWeight}
+            </Text>
           </View>
         </View>
-        <Button
-          onPress={props.onDeleteItem.bind(this, props.id)}
-          title="X"
-        />
+        <PrimaryButton
+          style={{color: "red"}}
+          onPress={onDeleteItem.bind(this, id)}
+          cancel={true}
+        >- Delete Exercise</PrimaryButton>
       </Pressable>
     </View>
   )
@@ -54,7 +63,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   button: {
-    flexDirection: "row",
+    color: "red",
+    backgroundColor: "white"
   },
   pressedItem: {
     opacity: 0.5

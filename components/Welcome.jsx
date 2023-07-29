@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native'
 
 import ExerciseInput from './ExerciseInput'
 import ExerciseItem from './ExerciseItem'
-import PrimaryButton from './PrimaryButton'
+import PrimaryButton from './common/PrimaryButton'
 
 import { COLORS, FONT, SIZES } from "../constants";
 
@@ -49,7 +49,7 @@ const Welcome = () => {
         <PrimaryButton
           onPress={startAddExercise}
         >
-          Add New Exercise
+          + Add Exercise
         </PrimaryButton>
         <ExerciseInput 
           visible={modalIsVisible}
