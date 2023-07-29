@@ -1,14 +1,5 @@
 import { useState } from 'react'
-import {
-  View,
-  Text,
-  Button,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  FlatList,
-  StyleSheet
-} from 'react-native'
+import { View, Text, FlatList, StyleSheet } from 'react-native'
 
 import ExerciseInput from './ExerciseInput'
 import ExerciseItem from './ExerciseItem'
@@ -23,12 +14,18 @@ const Welcome = () => {
   const startAddExercise = () => setModalIsVisible(true)
 
   const endAddExercise = () => setModalIsVisible(false)
-  
 
-  const handleSubmit = (enteredExerciseText) => {
+  const handleSubmit = (inputs) => {
     setExercises(prevExercises => [
       ...prevExercises,
-      { text: enteredExerciseText, id: Math.random().toString() }
+      { 
+        exerciseText: inputs.exerciseText, 
+        warmupReps: inputs.warmupReps,
+        warmupWeight: inputs.warmupWeight,
+        workingReps: inputs.workingReps,
+        workingWeight: inputs.workingWeight,
+        id: Math.random().toString() 
+      }
     ])
     endAddExercise()
   }
@@ -65,8 +62,9 @@ const Welcome = () => {
             renderItem={itemData => {
               return (
                 <ExerciseItem 
-                  text={itemData.item.text}
+                  inputs={itemData.item}
                   id={itemData.item.id}
+                  itemData={itemData}
                   onDeleteItem={deleteExercise}
                 />
               )

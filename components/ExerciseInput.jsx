@@ -17,8 +17,16 @@ function ExerciseInput({ onAddExercise, visible, onCancel }) {
   const [workingReps, setWorkingReps] = useState('')
   const [workingWeight, setWorkingWeight] = useState('')
 
+  const inputs = {
+    exerciseText: enteredExerciseText,
+    warmupReps: warmupReps,
+    warmupWeight: warmupWeight,
+    workingReps: workingReps,
+    workingWeight: workingWeight
+  }
+
   function addExerciseHandler() {
-    onAddExercise(enteredExerciseText)
+    onAddExercise(inputs)
     setEnteredExerciseText('')
     setWarmupReps('')
     setWarmupWeight('')
