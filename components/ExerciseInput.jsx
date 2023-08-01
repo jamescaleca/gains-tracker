@@ -5,7 +5,9 @@ import {
   Button,
   Text,
   Modal,
-  StyleSheet
+  StyleSheet,
+  StatusBar,
+  SafeAreaView
 } from 'react-native'
 
 import PrimaryButton from './common/PrimaryButton'
@@ -35,71 +37,85 @@ function ExerciseInput({ onAddExercise, visible, onCancel }) {
   }
 
   return (
-    <Modal visible={visible} animationType="slide">
-      <View style={styles.inputContainer}>
-        <Text style={styles.text}>Exercise Name:</Text>
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(enteredText) => setEnteredExerciseText(enteredText)}
-          value={enteredExerciseText}
-        />
-        <Text style={styles.text}>Warmup Reps:</Text>
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(enteredNum) => setWarmupReps(enteredNum)}
-          value={warmupReps}
-          keyboardType="number-pad"
-          autoCapitalize='none'
-          autoCorrect={false}
-          maxLength={2}
-        />
-        <Text style={styles.text}>Warmup Weight:</Text>
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(enteredNum) => setWarmupWeight(enteredNum)}
-          value={warmupWeight}
-          keyboardType="number-pad"
-          autoCapitalize='none'
-          autoCorrect={false}
-          maxLength={2}
-        />
-        <Text style={styles.text}>Working Reps:</Text>
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(enteredNum) => setWorkingReps(enteredNum)}
-          value={workingReps}
-          keyboardType="number-pad"
-          autoCapitalize='none'
-          autoCorrect={false}
-          maxLength={2}
-        />
-        <Text style={styles.text}>Working Weight:</Text>
-        <TextInput 
-          style={styles.textInput}
-          onChangeText={(enteredNum) => setWorkingWeight(enteredNum)}
-          value={workingWeight}
-          keyboardType="number-pad"
-          autoCapitalize='none'
-          autoCorrect={false}
-          maxLength={2}
-        />
-        <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <PrimaryButton 
-              onPress={onCancel} 
-              cancel={true}
-            >
-              Cancel
-            </PrimaryButton>
+    <SafeAreaView>
+      <Modal visible={visible} animationType="slide">
+        <View style={styles.inputContainer}>
+          <View style={{ alignItems: "center", flex: 1.5, marginTop: 50, }}>
+            <Text style={styles.text}>Exercise Name:</Text>
+            <TextInput 
+              style={[styles.textInput, styles.textInputWidth]}
+              onChangeText={(enteredText) => setEnteredExerciseText(enteredText)}
+              value={enteredExerciseText}
+              autoCapitalize='characters'
+              multiline={true}
+            />
           </View>
-          <View style={styles.button}>
-            <PrimaryButton onPress={addExerciseHandler}>
-              Add Exercise
-            </PrimaryButton>
+          <View style={{ alignItems: "center", flex: 1 }}>
+            <Text style={styles.text}>Warmup Reps:</Text>
+            <TextInput 
+              style={[styles.textInput, styles.numberInputWidth]}
+              onChangeText={(enteredNum) => setWarmupReps(enteredNum)}
+              value={warmupReps}
+              keyboardType="number-pad"
+              autoCapitalize='none'
+              autoCorrect={false}
+              maxLength={2}
+            />
+          </View>
+          <View style={{ alignItems: "center", flex: 1 }}>
+            <Text style={styles.text}>Warmup Weight:</Text>
+            <TextInput 
+              style={[styles.textInput, styles.numberInputWidth]}
+              onChangeText={(enteredNum) => setWarmupWeight(enteredNum)}
+              value={warmupWeight}
+              keyboardType="number-pad"
+              autoCapitalize='none'
+              autoCorrect={false}
+              maxLength={2}
+            />
+          </View>
+          <View style={{ alignItems: "center", flex: 1 }}>
+            <Text style={styles.text}>Working Reps:</Text>
+            <TextInput 
+              style={[styles.textInput, styles.numberInputWidth]}
+              onChangeText={(enteredNum) => setWorkingReps(enteredNum)}
+              value={workingReps}
+              keyboardType="number-pad"
+              autoCapitalize='none'
+              autoCorrect={false}
+              maxLength={2}
+            />
+          </View>
+          <View style={{ alignItems: "center", flex: 1 }}>
+            <Text style={styles.text}>Working Weight:</Text>
+            <TextInput 
+              style={[styles.textInput, styles.numberInputWidth]}
+              onChangeText={(enteredNum) => setWorkingWeight(enteredNum)}
+              value={workingWeight}
+              keyboardType="number-pad"
+              autoCapitalize='none'
+              autoCorrect={false}
+              maxLength={2}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <View style={styles.button}>
+              <PrimaryButton 
+                onPress={onCancel} 
+                cancel={true}
+              >
+                Cancel
+              </PrimaryButton>
+            </View>
+            <View style={styles.button}>
+              <PrimaryButton onPress={addExerciseHandler}>
+                Add Exercise
+              </PrimaryButton>
+            </View>
           </View>
         </View>
-      </View>
-    </Modal>
+      </Modal>
+    </SafeAreaView>
   )
 }
 
@@ -120,15 +136,23 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: '#e4d0ff',
-    backgroundColor: '#e4d0ff',
-    color: '#120438',
+    color: "#c7c7c7",
+    fontSize: 34,
+    textAlign: "center",
     borderRadius: 6,
-    width: '100%',
+    height: "80%",
     padding: 16,
+  },
+  textInputWidth: {
+    width: 400
+  },
+  numberInputWidth: {
+    width: 90
   },
   buttonContainer: {
     marginTop: 16,
     flexDirection: 'row',
+    alignItems: 'center'
   },
   button: {
     width: 100,

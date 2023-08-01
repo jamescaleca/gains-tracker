@@ -5,7 +5,7 @@ import ExerciseInput from './ExerciseInput'
 import ExerciseItem from './ExerciseItem'
 import PrimaryButton from './common/PrimaryButton'
 
-import { COLORS, FONT, SIZES } from "../constants";
+import { COLORS, FONT, SIZES } from "../constants"
 
 const Welcome = () => {
   const [exercises, setExercises] = useState([])
@@ -49,7 +49,7 @@ const Welcome = () => {
         <PrimaryButton
           onPress={startAddExercise}
         >
-          + Add Exercise
+          <Text style={styles.bold}>+ Add Exercise</Text>
         </PrimaryButton>
         <ExerciseInput 
           visible={modalIsVisible}
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     marginBottom: 30
+  },
+  bold: {
+    fontWeight: "bold",
   },
   userName: {
     fontFamily: FONT.regular,

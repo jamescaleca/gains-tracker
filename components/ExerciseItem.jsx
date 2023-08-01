@@ -13,23 +13,26 @@ function ExerciseItem({ inputs, onDeleteItem, id }) {
         }
       >
         <View>
-          <Text style={styles.exerciseText}>{inputs.exerciseText}</Text>
+          <Text 
+            style={[styles.exerciseText, styles.bold]}
+          >{inputs.exerciseText}
+          </Text>
         </View>
         <View style={{ flexDirection: "row" }}>
           <View>
             <Text style={styles.exerciseText}>
-              WU Reps: {inputs.warmupReps}
+              WU Reps: <Text style={styles.bold}>{inputs.warmupReps}</Text>
             </Text>
             <Text style={styles.exerciseText}>
-              WU Weight: {inputs.warmupWeight}
+              WU Weight: <Text style={styles.bold}>{inputs.warmupWeight}</Text>
             </Text>
           </View>
           <View>
             <Text style={styles.exerciseText}>
-              Working Reps: {inputs.workingReps}
+              Working Reps: <Text style={styles.bold}>{inputs.workingReps}</Text>
             </Text>
             <Text style={styles.exerciseText}>
-              Working Weight: {inputs.workingWeight}
+              Working Weight: <Text style={styles.bold}>{inputs.workingWeight}</Text>
             </Text>
           </View>
         </View>
@@ -37,7 +40,7 @@ function ExerciseItem({ inputs, onDeleteItem, id }) {
           style={{color: "red"}}
           onPress={onDeleteItem.bind(this, id)}
           cancel={true}
-        >- Delete Exercise</PrimaryButton>
+        ><Text style={styles.bold}>- Delete Exercise</Text></PrimaryButton>
       </Pressable>
     </View>
   )
@@ -68,6 +71,9 @@ const styles = StyleSheet.create({
   },
   pressedItem: {
     opacity: 0.5
+  },
+  bold: {
+    fontWeight: "bold"
   },
   exerciseText: {
     color: "white",

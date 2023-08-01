@@ -8,7 +8,7 @@ function PrimaryButton({ children, onPress, cancel }) {
           style={
             ({ pressed }) => pressed 
             ? [ styles.buttonInnerContainer, styles.buttonColorRed, styles.pressed ]
-            : [styles.buttonInnerContainer, styles.buttonColorRed,]
+            : [ styles.buttonInnerContainer, styles.buttonColorRed ]
           }
           onPress={onPress}
           android_ripple={{ color: "#570abb" }}
@@ -20,7 +20,7 @@ function PrimaryButton({ children, onPress, cancel }) {
           style={
             ({ pressed }) => pressed 
             ? [ styles.buttonInnerContainer, styles.buttonColorPurple, styles.pressed ]
-            : [styles.buttonInnerContainer, styles.buttonColorPurple]
+            : [ styles.buttonInnerContainer, styles.buttonColorPurple ]
           }
           onPress={onPress}
           android_ripple={{ color: "#570abb" }}
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
   buttonOuterContainer: {
     borderRadius: 28,
     margin: 4,
-    overflow: "hidden"
+    overflow: "hidden",
+    elevation: 4,
   },
   buttonColorPurple: {
     backgroundColor: "#6f0def",
@@ -47,9 +48,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f31221",
   },
   buttonInnerContainer: {
-    paddingVertical: 8,
+    paddingVertical: 12,
     paddingHorizontal: 16,
-    elevation: 2,
   },
   buttonText: {
     color: "white",
@@ -57,5 +57,5 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.75
-  }
+  },
 })
